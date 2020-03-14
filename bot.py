@@ -6,19 +6,22 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD_NAME')
 
-client = discord.Client()
+bot = discord.Client()
 
-@client.event
+@bot.event
 async def on_ready():
-    for guild in client.guilds:
+    for guild in bot.guilds:
         if guild.name == GUILD:
             break
+    print("OK")
+    
+@bot.event
+async def on_voice_state_update(member, before, after):
+    print(member)
+    print(before)
+    print(after)
 
-    print(f'{client.user} is connected to the following guild:\n' + f'{guild.name}(id: {guild.id})\n')
 
-    num = 0
-    for member in range(len(guild.members)):
-        print(str(guild.members[member]).encode("utf-8"))
-        num += 1
 
-client.run(TOKEN)
+
+bot.run(TOKEN)
