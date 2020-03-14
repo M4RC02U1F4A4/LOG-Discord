@@ -1,1 +1,3 @@
 # LOG-Discord
+
+TOKEN: ***REMOVED***
