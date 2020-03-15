@@ -30,7 +30,7 @@ async def on_voice_state_update(member, before, after):
     elif(before.self_stream != after.self_stream):
         print(datetime.datetime.now(), "|", member, "| STREAMING |", str(after.self_stream).replace("True", "ON").replace("False", "OFF"), file=open("log.txt", "a"))
         print(datetime.datetime.now(), "|", member, "| STREAMING |", str(after.self_stream).replace("True", "ON").replace("False", "OFF"))
-    if(before.self_mute != after.self_mute and after.channel != None):
+    if((before.self_mute != after.self_mute and after.channel != None) or (before.channel == None and after.channel != None)):
         print(datetime.datetime.now(), "|", member, "| MUTE |", str(after.self_mute).replace("True", "YES").replace("False", "NO"), file=open("log.txt", "a"))
         print(datetime.datetime.now(), "|", member, "| MUTE |", str(after.self_mute).replace("True", "YES").replace("False", "NO"))
 
