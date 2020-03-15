@@ -30,9 +30,25 @@ async def on_voice_state_update(member, before, after):
     elif(before.self_stream != after.self_stream):
         print(datetime.datetime.now(), "|", member, "| STREAMING |", str(after.self_stream).replace("True", "ON").replace("False", "OFF"), file=open("log.txt", "a"))
         print(datetime.datetime.now(), "|", member, "| STREAMING |", str(after.self_stream).replace("True", "ON").replace("False", "OFF"))
-    if(before.self_mute != after.self_mute and after.channel == None):
+    if(before.self_mute != after.self_mute and after.channel != None):
         print(datetime.datetime.now(), "|", member, "| MUTE |", str(after.self_mute).replace("True", "YES").replace("False", "NO"), file=open("log.txt", "a"))
         print(datetime.datetime.now(), "|", member, "| MUTE |", str(after.self_mute).replace("True", "YES").replace("False", "NO"))
+
+@bot.event
+async def on_invite_create(invite):
+    print(datetime.datetime.now(), "|", invite.inviter, "| INVITE |", str(invite.code), file=open("log.txt", "a"))
+    print(datetime.datetime.now(), "|", invite.inviter, "| INVITE |", str(invite.code))
+
+@bot.event
+async def on_member_join(member):
+    print(datetime.datetime.now(), "|", member, "| JOIN |", member.display_name, file=open("log.txt", "a"))
+    print(datetime.datetime.now(), "|", member, "| JOIN |", member.display_name)
+
+@bot.event
+async def on_member_remove(member):
+    print(datetime.datetime.now(), "|", member, "| LEAVE |", member.display_name, file=open("log.txt", "a"))
+    print(datetime.datetime.now(), "|", member, "| LEAVE |", member.display_name)
+
 
 print("Starting...", file=open("log.txt", "a"))
 bot.run(TOKEN)
