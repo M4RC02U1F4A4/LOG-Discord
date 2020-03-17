@@ -50,5 +50,5 @@ async def on_member_remove(member):
     print(datetime.datetime.now(), "|", member, "| LEAVE |", member.display_name)
 
 
-print("Starting...", file=open("log.txt", "a"))
+print("Starting...", file=open("./out/log.txt", "a"))
 bot.run(TOKEN)
