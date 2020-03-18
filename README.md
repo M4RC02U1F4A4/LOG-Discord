@@ -26,5 +26,5 @@ Dopo il comando ``` docker run ``` il container è già avviato
 ### Logs
 ```docker logs -f discord```
 
-## Documentation
+## discord.py documentation
 https://discordpy.readthedocs.io/en/latest/index.html
