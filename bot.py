@@ -49,6 +49,12 @@ async def on_member_remove(member):
     print(datetime.datetime.now(), "|", member, "| LEAVE |", member.display_name, file=open("./out/log.txt", "a"))
     print(datetime.datetime.now(), "|", member, "| LEAVE |", member.display_name)
 
+@bot.event
+async def on_guild_update(before, after):
+    if(before.region != after.region):
+        print(datetime.datetime.now(), "| REGION |", before.region, "->", after.region, file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| REGION |", before.region, "->", after.region)
+
 
 print("Starting...", file=open("./out/log.txt", "a"))
 bot.run(TOKEN)
