@@ -58,6 +58,15 @@ async def on_guild_update(before, after):
         print(datetime.datetime.now(), "| SECURITY |", before.verification_level, "->", after.verification_level, file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| SECURITY |", before.verification_level, "->", after.verification_level)
 
+@bot.event
+async def on_member_ban(guild, user):
+    print(datetime.datetime.now(), "| BAN |", user.name,  file=open("./out/log.txt", "a"))
+    print(datetime.datetime.now(), "| BAN |", user.name)
+
+@bot.event
+async def on_member_unban(guild, user):
+    print(datetime.datetime.now(), "| UNBAN |", user.name,  file=open("./out/log.txt", "a"))
+    print(datetime.datetime.now(), "| UNBAN |", user.name)
 
 print("Starting...", file=open("./out/log.txt", "a"))
 bot.run(TOKEN)

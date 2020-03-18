@@ -10,6 +10,8 @@ Bot per avere un file log del proprio server di Discord
 * Cambio regione
 * Cambio livello di sicurezza
 
+* Ban e Unban
+
 ## Intallation
 ```
 docker load -i discord-<release>
