@@ -19,35 +19,35 @@ async def on_ready():
 @bot.event
 async def on_voice_state_update(member, before, after):
     if(before.channel == None):
-        print(datetime.datetime.now(), "|", member, "| CONNECTED |", str(after.channel), file=open("./out/log.txt", "a"))
-        print(datetime.datetime.now(), "|", member, "| CONNECTED |", str(after.channel))
+        print(datetime.datetime.now(), "| CONNECTED |", member, "|", str(after.channel), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| CONNECTED |", member, "|", str(after.channel))
     elif(after.channel == None):
-        print(datetime.datetime.now(), "|", member, "| DISCONNECTED |", str(before.channel), file=open("./out/log.txt", "a"))
-        print(datetime.datetime.now(), "|", member, "| DISCONNECTED |", str(before.channel))
+        print(datetime.datetime.now(), "| DISCONNECTED |", member, "|", str(before.channel), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| DISCONNECTED |", member, "|", str(before.channel))
     elif(before.channel != after.channel):
-        print(datetime.datetime.now(), "|", member, "| MOVED |", str(before.channel), "->", str(after.channel), file=open("./out/log.txt", "a"))
-        print(datetime.datetime.now(), "|", member, "| MOVED |", str(before.channel), "->", str(after.channel))
+        print(datetime.datetime.now(), "| MOVED |", member, "|", str(before.channel), "->", str(after.channel), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| MOVED |", member, "|", str(before.channel), "->", str(after.channel))
     elif(before.self_stream != after.self_stream):
-        print(datetime.datetime.now(), "|", member, "| STREAMING |", str(after.self_stream).replace("True", "ON").replace("False", "OFF"), file=open("./out/log.txt", "a"))
-        print(datetime.datetime.now(), "|", member, "| STREAMING |", str(after.self_stream).replace("True", "ON").replace("False", "OFF"))
+        print(datetime.datetime.now(), "| STREAMING |", member, "|", str(after.self_stream).replace("True", "ON").replace("False", "OFF"), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| STREAMING |", member, "|", str(after.self_stream).replace("True", "ON").replace("False", "OFF"))
     if((before.self_mute != after.self_mute and after.channel != None) or (before.channel == None and after.channel != None)):
-        print(datetime.datetime.now(), "|", member, "| MUTE |", str(after.self_mute).replace("True", "YES").replace("False", "NO"), file=open("./out/log.txt", "a"))
-        print(datetime.datetime.now(), "|", member, "| MUTE |", str(after.self_mute).replace("True", "YES").replace("False", "NO"))
+        print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES").replace("False", "NO"), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES").replace("False", "NO"))
 
 @bot.event
 async def on_invite_create(invite):
-    print(datetime.datetime.now(), "|", invite.inviter, "| INVITE |", str(invite.code), file=open("./out/log.txt", "a"))
-    print(datetime.datetime.now(), "|", invite.inviter, "| INVITE |", str(invite.code))
+    print(datetime.datetime.now(), "| INVITE |", invite.inviter, "|", str(invite.code), file=open("./out/log.txt", "a"))
+    print(datetime.datetime.now(), "| INVITE |", invite.inviter, "|", str(invite.code))
 
 @bot.event
 async def on_member_join(member):
-    print(datetime.datetime.now(), "|", member, "| JOIN |", member.display_name, file=open("./out/log.txt", "a"))
-    print(datetime.datetime.now(), "|", member, "| JOIN |", member.display_name)
+    print(datetime.datetime.now(), "| JOIN |", member, "|", member.display_name, file=open("./out/log.txt", "a"))
+    print(datetime.datetime.now(), "| JOIN |", member, "|", member.display_name)
 
 @bot.event
 async def on_member_remove(member):
-    print(datetime.datetime.now(), "|", member, "| LEAVE |", member.display_name, file=open("./out/log.txt", "a"))
-    print(datetime.datetime.now(), "|", member, "| LEAVE |", member.display_name)
+    print(datetime.datetime.now(), "| LEAVE |", member, "|", member.display_name, file=open("./out/log.txt", "a"))
+    print(datetime.datetime.now(), "| LEAVE |", member, "|", member.display_name)
 
 @bot.event
 async def on_guild_update(before, after):
