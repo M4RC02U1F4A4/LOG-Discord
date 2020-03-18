@@ -7,6 +7,8 @@ Bot per avere un file log del proprio server di Discord
 * Creazione di inviti
 * Join e leave del server
 * Mute del microfono
+* Cambio regione
+* Cambio livello di sicurezza
 
 ## Intallation
 ```
