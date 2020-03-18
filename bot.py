@@ -54,6 +54,9 @@ async def on_guild_update(before, after):
     if(before.region != after.region):
         print(datetime.datetime.now(), "| REGION |", before.region, "->", after.region, file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| REGION |", before.region, "->", after.region)
+    if(before.verification_level != after.verification_level):
+        print(datetime.datetime.now(), "| SECURITY |", before.verification_level, "->", after.verification_level, file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| SECURITY |", before.verification_level, "->", after.verification_level)
 
 
 print("Starting...", file=open("./out/log.txt", "a"))
