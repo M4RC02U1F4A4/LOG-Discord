@@ -9,8 +9,9 @@ Bot per avere un file log del proprio server di Discord
 * Mute del microfono
 * Cambio regione
 * Cambio livello di sicurezza
-
 * Ban e Unban
+* Cambio nickname
+* Status
 
 ## Intallation
 ```

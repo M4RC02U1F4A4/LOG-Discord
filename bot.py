@@ -68,5 +68,22 @@ async def on_member_unban(guild, user):
     print(datetime.datetime.now(), "| UNBAN |", user.name,  file=open("./out/log.txt", "a"))
     print(datetime.datetime.now(), "| UNBAN |", user.name)
 
+@bot.event
+async def on_user_update(before, after):
+    print(datetime.datetime.now(), "| USERNAME |", before.name, "->", after.name, file=open("./out/log.txt", "a"))
+    print(datetime.datetime.now(), "| USERNAME |", before.name, "->", after.name,)
+
+@bot.event
+async def on_member_update(before, after):
+    if(before.nick != after.nick):
+        print(datetime.datetime.now(), "| NICK |", (before.nick.encode('unicode-escape')), "->", (after.nick.encode('unicode-escape')), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| NICK |", (before.nick.encode('unicode-escape')), "->", (after.nick.encode('unicode-escape'))) 
+    if(before.status != after.status):
+        print(datetime.datetime.now(), "| STATUS |", before, "|", before.status, "->", after.status, file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| STATUS |", before, "|", before.status, "->", after.status) 
+    if(before.roles != after.roles):
+        print(datetime.datetime.now(), "| ROLE |", before, "|", *(after.roles), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| ROLE |", before, "|", *(after.roles)) 
+
 print("Starting...", file=open("./out/log.txt", "a"))
 bot.run(TOKEN)
