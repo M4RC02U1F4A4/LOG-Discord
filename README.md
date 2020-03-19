@@ -12,6 +12,8 @@ Bot per avere un file log del proprio server di Discord
 * Ban e Unban
 * Cambio nickname
 * Status
+* Chat
+* Messaggi modificati
 
 ## Intallation
 ```
