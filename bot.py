@@ -15,6 +15,7 @@ async def on_ready():
         if guild.name == GUILD:
             break
     print("OK", file=open("./out/log.txt", "a"))
+    print("OK")
 
 @bot.event
 async def on_voice_state_update(member, before, after):
@@ -76,8 +77,8 @@ async def on_user_update(before, after):
 @bot.event
 async def on_member_update(before, after):
     if(before.nick != after.nick):
-        print(datetime.datetime.now(), "| NICK |", (before.nick.encode('unicode-escape')), "->", (after.nick.encode('unicode-escape')), file=open("./out/log.txt", "a"))
-        print(datetime.datetime.now(), "| NICK |", (before.nick.encode('unicode-escape')), "->", (after.nick.encode('unicode-escape'))) 
+        print(datetime.datetime.now(), "| NICK |", (before.nick.encode('utf-8')), "->", (after.nick.encode('utf-8')), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| NICK |", (before.nick.encode('utf-8')), "->", (after.nick.encode('utf-8'))) 
     if(before.status != after.status):
         print(datetime.datetime.now(), "| STATUS |", before, "|", before.status, "->", after.status, file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| STATUS |", before, "|", before.status, "->", after.status) 
@@ -85,5 +86,15 @@ async def on_member_update(before, after):
         print(datetime.datetime.now(), "| ROLE |", before, "|", *(after.roles), file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| ROLE |", before, "|", *(after.roles)) 
 
+@bot.event
+async def on_message(message):
+    if(str(message.content) == ""):
+        print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "|", message.attachments[0].filename, "|", message.attachments[0].url, file=open("./out/chat.txt", "a"))
+        print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "|", message.attachments[0].filename, "|", message.attachments[0].url)
+    else:
+        print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "| TTS = ", message.tts, "|", str(message.content).encode("utf-8"), file=open("./out/chat.txt", "a"))
+        print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "| TTS = ", message.tts, "|", str(message.content).encode("utf-8"))
+
+print("Starting...")
 print("Starting...", file=open("./out/log.txt", "a"))
 bot.run(TOKEN)
