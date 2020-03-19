@@ -99,8 +99,9 @@ async def on_message(message):
         print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "| TTS = ", message.tts, "|", str(message.content).encode("utf-8"), file=open("./out/chat.txt", "a"))
         print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "| TTS = ", message.tts, "|", str(message.content).encode("utf-8"))
 
-# @bot.event
-# async def on_message_edit(before, after):
+@bot.event
+async def on_message_edit(before, after):
+    print(datetime.datetime.now(), "|", before.id, "|", str(after.content).encode("utf-8"))
 
 
 print("Starting...")
