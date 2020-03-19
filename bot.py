@@ -88,12 +88,20 @@ async def on_member_update(before, after):
 
 @bot.event
 async def on_message(message):
-    if(str(message.content) == ""):
-        print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "|", message.attachments[0].filename, "|", message.attachments[0].url, file=open("./out/chat.txt", "a"))
-        print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "|", message.attachments[0].filename, "|", message.attachments[0].url)
+    if(len(message.attachments) != 0):
+        if(str(message.content) == ""):
+            print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "|", message.attachments[0].filename, "|", message.attachments[0].url, file=open("./out/chat.txt", "a"))
+            print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "|", message.attachments[0].filename, "|", message.attachments[0].url)
+        else:
+            print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "|", str(message.content).encode("utf-8"), "|", message.attachments[0].filename, "|", message.attachments[0].url, file=open("./out/chat.txt", "a"))
+            print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "|", str(message.content).encode("utf-8"), "|", message.attachments[0].filename, "|", message.attachments[0].url)
     else:
         print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "| TTS = ", message.tts, "|", str(message.content).encode("utf-8"), file=open("./out/chat.txt", "a"))
         print(datetime.datetime.now(), "|", message.id, "|", message.channel, "|", message.author, "| TTS = ", message.tts, "|", str(message.content).encode("utf-8"))
+
+# @bot.event
+# async def on_message_edit(before, after):
+
 
 print("Starting...")
 print("Starting...", file=open("./out/log.txt", "a"))
