@@ -14,7 +14,6 @@ Bot per avere un file log del proprio server di Discord
 * Status
 * Chat
 * Messaggi modificati
-* Prometheus
 
 ## Intallation
 #### Creazione dei file necessari
@@ -34,6 +33,9 @@ Dopo il comando ``` docker run ``` il container è già avviato
 ```docker stop discord```
 ### Logs
 ```docker logs -f discord```
+
+## Prometheus
+https://hub.docker.com/u/prom
 
 ## discord.py documentation
 https://discordpy.readthedocs.io/en/latest/index.html
