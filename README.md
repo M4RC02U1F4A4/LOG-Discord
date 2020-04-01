@@ -35,6 +35,9 @@ Dopo il comando ``` docker run ``` il container è già avviato
 ```docker logs -f discord```
 
 ## Prometheus
+```
+docker run --name prometheus -d -p 9090:9090 -v <path-to-config>/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+```
 https://hub.docker.com/r/prom/prometheus
 
 ## discord.py documentation
