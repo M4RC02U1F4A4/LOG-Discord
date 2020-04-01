@@ -38,6 +38,12 @@ Dopo il comando ``` docker run ``` il container è già avviato
 ```
 docker run --name prometheus -d -p 9090:9090 -v <path-to-config>/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
+```
+  - job_name: 'discord'
+    scrape_interval: 500ms
+    static_configs:
+      - targets: ['<IP>:9324']
+```
 https://hub.docker.com/r/prom/prometheus
 
 ## discord.py documentation
