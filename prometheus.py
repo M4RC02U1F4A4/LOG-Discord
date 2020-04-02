@@ -9,7 +9,6 @@ from prometheus_client import start_http_server
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD_NAME')
-
 bot = discord.Client()
 
 @bot.event
@@ -38,6 +37,7 @@ async def on_ready():
         discord_user_offline.set(nOffline)
         discord_user_dnd.set(nDnd)       
         discord_user_idle.set(nIdle)
+    discord_user_vocal.set(0)
     print("OK", file=open("./out/log.txt", "a"))
     print("OK")
 
@@ -45,8 +45,10 @@ async def on_ready():
 async def on_voice_state_update(member, before, after):
     if(before.channel == None):
         discord_user_connect.inc()
+        discord_user_vocal.inc()
     elif(after.channel == None):
         discord_user_disconnect.inc()
+        discord_user_vocal.dec()
 
 @bot.event
 async def on_member_update(before, after):
@@ -91,4 +93,5 @@ discord_message = Counter('discord_message', 'Numero di utenti online')
 discord_user_connect = Counter('discord_user_connect', 'Numero di connessioni')
 discord_user_disconnect = Counter('discord_user_disconnect', 'Numero di disconnessioni')
 discord_games_activities = Counter('discord_games_activities', 'Numero di attività nei giochi')
+discord_user_vocal = Gauge('discord_user_vocal', 'Numero di utenti connessi ai canali vocali')
 bot.run(TOKEN)
