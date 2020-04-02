@@ -50,6 +50,7 @@ async def on_voice_state_update(member, before, after):
 
 @bot.event
 async def on_member_update(before, after):
+    if(before.status != after.status):
         nOnline = 0
         nNotOffline = 0
         nOffline = 0
@@ -71,6 +72,8 @@ async def on_member_update(before, after):
             discord_user_offline.set(nOffline)
             discord_user_dnd.set(nDnd)       
             discord_user_idle.set(nIdle)
+    if(any(after.activities)):
+        discord_games_activities.inc()
 
 @bot.event
 async def on_message(message):
@@ -87,4 +90,5 @@ discord_user_idle = Gauge('discord_user_idle', 'Numero di utenti in idle')
 discord_message = Counter('discord_message', 'Numero di utenti online')
 discord_user_connect = Counter('discord_user_connect', 'Numero di connessioni')
 discord_user_disconnect = Counter('discord_user_disconnect', 'Numero di disconnessioni')
+discord_games_activities = Counter('discord_games_activities', 'Numero di attività nei giochi')
 bot.run(TOKEN)
