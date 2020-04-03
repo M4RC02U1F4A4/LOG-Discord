@@ -37,9 +37,7 @@ async def on_ready():
         discord_user_offline.set(nOffline)
         discord_user_dnd.set(nDnd)       
         discord_user_idle.set(nIdle)
-    discord_user_vocal.set(0)
-    print("OK", file=open("./out/log.txt", "a"))
-    print("OK")
+    print("OK PROMETHEUS")
 
 @bot.event
 async def on_voice_state_update(member, before, after):
@@ -48,7 +46,7 @@ async def on_voice_state_update(member, before, after):
         discord_user_vocal.inc()
     elif(after.channel == None):
         discord_user_disconnect.inc()
-        discord_user_vocal.dec()
+        discord_user_vocal.dec(1)
 
 @bot.event
 async def on_member_update(before, after):
@@ -94,4 +92,5 @@ discord_user_connect = Counter('discord_user_connect', 'Numero di connessioni')
 discord_user_disconnect = Counter('discord_user_disconnect', 'Numero di disconnessioni')
 discord_games_activities = Counter('discord_games_activities', 'Numero di attività nei giochi')
 discord_user_vocal = Gauge('discord_user_vocal', 'Numero di utenti connessi ai canali vocali')
+discord_user_vocal.set(0)
 bot.run(TOKEN)
