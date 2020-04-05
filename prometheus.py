@@ -21,6 +21,7 @@ async def on_ready():
     nOffline = 0
     nDnd = 0
     nIdle = 0
+    online = 0
     for user in bot.guilds[0].members:
         if(str(user.status) != "offline" and user.bot == False):
             nNotOffline +=1
@@ -32,21 +33,32 @@ async def on_ready():
             nDnd += 1
         if(str(user.status) == "idle" and user.bot == False):
             nIdle +=1
-        discord_user_not_offline.set(nNotOffline)
-        discord_user_online.set(nOnline)
-        discord_user_offline.set(nOffline)
-        discord_user_dnd.set(nDnd)       
-        discord_user_idle.set(nIdle)
+        if(str(user.voice) != "None"):
+                online += 1
+    discord_user_not_offline.set(nNotOffline)
+    discord_user_online.set(nOnline)
+    discord_user_offline.set(nOffline)
+    discord_user_dnd.set(nDnd)       
+    discord_user_idle.set(nIdle)        
+    discord_user_vocal.set(online)
     print("OK PROMETHEUS")
 
 @bot.event
 async def on_voice_state_update(member, before, after):
     if(before.channel == None):
         discord_user_connect.inc()
-        discord_user_vocal.inc()
+        online = 0
+        for user in bot.guilds[0].members:
+            if(str(user.voice) != "None"):
+                online += 1
+        discord_user_vocal.set(online)
     elif(after.channel == None):
         discord_user_disconnect.inc()
-        discord_user_vocal.dec(1)
+        online = 0
+        for user in bot.guilds[0].members:
+            if(str(user.voice) != "None"):
+                online += 1
+        discord_user_vocal.set(online)
 
 @bot.event
 async def on_member_update(before, after):
@@ -92,5 +104,4 @@ discord_user_connect = Counter('discord_user_connect', 'Numero di connessioni')
 discord_user_disconnect = Counter('discord_user_disconnect', 'Numero di disconnessioni')
 discord_games_activities = Counter('discord_games_activities', 'Numero di attività nei giochi')
 discord_user_vocal = Gauge('discord_user_vocal', 'Numero di utenti connessi ai canali vocali')
-discord_user_vocal.set(0)
 bot.run(TOKEN)
