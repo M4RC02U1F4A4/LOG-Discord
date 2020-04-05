@@ -14,6 +14,7 @@ Bot per avere un file log del proprio server di Discord
 * Status
 * Chat
 * Messaggi modificati
+* Prometheus stats
 
 #### Prometheus
 * Stato utenti
