@@ -14,6 +14,21 @@ Bot per avere un file log del proprio server di Discord
 * Status
 * Chat
 * Messaggi modificati
+* Prometheus stats
+
+#### Prometheus
+* Stato utenti
+  * N utenti totali
+  * N utenti online (totali)
+  * N utenti offline
+  * N utenti online 
+  * N utenti idle
+  * N utenti dnd
+* N utenti collegati alla chat vocale
+* Attività in gioco
+* Attività chat
+* N connessioni
+* N disconnessioni
 
 ## Intallation
 #### Creazione dei file necessari
