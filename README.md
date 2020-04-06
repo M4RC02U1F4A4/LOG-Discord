@@ -3,18 +3,8 @@
 Bot per avere un file log del proprio server di Discord
 
 ### Features
-* Connessione e disconnessione
-* Creazione di inviti
-* Join e leave del server
-* Mute del microfono
-* Audio silenziato
-* Cambio regione
-* Cambio livello di sicurezza
-* Ban e Unban
-* Cambio nickname
-* Status
-* Chat
-* Messaggi modificati
+* [LOG del server](https://github.com/Marco1097/LOG-Discord/wiki/LOG)
+* Log della chat
 * Prometheus stats
 
 #### Prometheus
