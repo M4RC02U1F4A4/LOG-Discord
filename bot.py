@@ -31,12 +31,22 @@ async def on_voice_state_update(member, before, after):
     elif(before.self_stream != after.self_stream):
         print(datetime.datetime.now(), "| STREAMING |", member, "|", str(after.self_stream).replace("True", "ON").replace("False", "OFF"), file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| STREAMING |", member, "|", str(after.self_stream).replace("True", "ON").replace("False", "OFF"))
-    if((before.self_mute != after.self_mute and after.channel != None) or (before.channel == None and after.channel != None)):
-        print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES").replace("False", "NO"), file=open("./out/log.txt", "a"))
-        print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES").replace("False", "NO"))
-    if((before.self_deaf != after.self_deaf and after.channel != None) or (before.channel == None and after.channel != None)):
+    if(before.self_deaf != after.self_deaf and after.channel != None):
         print(datetime.datetime.now(), "| DEAF |", member, "|", str(after.self_deaf).replace("True", "YES").replace("False", "NO"), file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| DEAF |", member, "|", str(after.self_deaf).replace("True", "YES").replace("False", "NO"))
+        if(after.self_mute == True and after.self_deaf == False):
+            print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES"), file=open("./out/log.txt", "a"))
+            print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES"))
+    elif(before.self_mute != after.self_mute and after.channel != None):
+        print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES").replace("False", "NO"), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES").replace("False", "NO"))
+    if(before.channel == None and after.channel != None):
+        if(after.self_deaf == True):
+            print(datetime.datetime.now(), "| DEAF |", member, "|", str(after.self_deaf).replace("True", "YES"), file=open("./out/log.txt", "a"))
+            print(datetime.datetime.now(), "| DEAF |", member, "|", str(after.self_deaf).replace("True", "YES"))
+        elif(after.self_mute == True):
+            print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES"), file=open("./out/log.txt", "a"))
+            print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES"))
     
 
 @bot.event
