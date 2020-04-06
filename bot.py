@@ -34,6 +34,10 @@ async def on_voice_state_update(member, before, after):
     if((before.self_mute != after.self_mute and after.channel != None) or (before.channel == None and after.channel != None)):
         print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES").replace("False", "NO"), file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| MUTE |", member, "|", str(after.self_mute).replace("True", "YES").replace("False", "NO"))
+    if((before.self_deaf != after.self_deaf and after.channel != None) or (before.channel == None and after.channel != None)):
+        print(datetime.datetime.now(), "| DEAF |", member, "|", str(after.self_deaf).replace("True", "YES").replace("False", "NO"), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| DEAF |", member, "|", str(after.self_deaf).replace("True", "YES").replace("False", "NO"))
+    
 
 @bot.event
 async def on_invite_create(invite):
