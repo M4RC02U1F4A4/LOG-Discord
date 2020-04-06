@@ -38,6 +38,3 @@ docker run --name prometheus -d -p 9090:9090 -v <path-to-config>/prometheus.yml:
       - targets: ['<IP>:9324']
 ```
 https://hub.docker.com/r/prom/prometheus
-
-## discord.py documentation
-https://discordpy.readthedocs.io/en/latest/index.html
