@@ -5,7 +5,7 @@ Bot per avere un file log del proprio server di Discord
 ### Features
 * [LOG del server](https://github.com/Marco1097/LOG-Discord/wiki/LOG)
 * Log della chat
-* Prometheus stats
+* [Prometheus stats](https://github.com/Marco1097/LOG-Discord/wiki/Prometheus)
 
 #### Prometheus
 * Stato utenti
