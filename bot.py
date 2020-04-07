@@ -14,7 +14,6 @@ async def on_ready():
     for guild in bot.guilds:
         if guild.name == GUILD:
             break
-    print("OK", file=open("./out/log.txt", "a"))
     print("OK")
 
 @bot.event
@@ -121,5 +120,4 @@ async def on_message_edit(before, after):
 
 
 print("Starting...")
-print("Starting...", file=open("./out/log.txt", "a"))
 bot.run(TOKEN)
