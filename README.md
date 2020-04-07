@@ -1,4 +1,4 @@
-# LOG-Discord
+# LOG-Discord <img align="right" src="https://img.shields.io/badge/Status-WORKING-blue">
 
 Bot per avere un file log del proprio server di Discord
 
