@@ -85,7 +85,12 @@ async def on_member_update(before, after):
             discord_user_dnd.set(nDnd)       
             discord_user_idle.set(nIdle)
     if(any(after.activities)):
-        discord_games_activities.inc()
+        controllo = True
+        for role in after.roles:
+            if str(role.name) == "BOT":
+                controllo = False
+        if(controllo):
+            discord_games_activities.inc()
 
 @bot.event
 async def on_message(message):
