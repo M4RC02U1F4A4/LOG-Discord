@@ -97,7 +97,15 @@ async def on_member_update(before, after):
         print(datetime.datetime.now(), "| STATUS |", before, "|", before.status, "->", after.status) 
     if(before.roles != after.roles):
         print(datetime.datetime.now(), "| ROLE |", before, "|", *(after.roles), file=open("./out/log.txt", "a"))
-        print(datetime.datetime.now(), "| ROLE |", before, "|", *(after.roles)) 
+        print(datetime.datetime.now(), "| ROLE |", before, "|", *(after.roles))
+    if(any(after.activities)):
+        controllo = True
+        for role in after.roles:
+            if str(role.name) == "BOT":
+                controllo = False
+        if(controllo):
+            print(datetime.datetime.now(), "|", before, "|", str(after.activities).encode("utf-8"), file=open("./out/activities.txt", "a"))
+            print(datetime.datetime.now(), "|", before, "|", str(after.activities).encode("utf-8"))
 
 @bot.event
 async def on_message(message):
