@@ -13,6 +13,7 @@ Bot per avere un file log del proprio server di Discord
 ```
 touch <path-to-your-output-folder>/out.txt
 touch <path-to-your-output-folder>/chat.txt
+touch <path-to-your-output-folder>/activities.txt
 ```
 #### Caricamento e avvio del container
 ```
