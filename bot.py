@@ -92,9 +92,15 @@ async def on_member_update(before, after):
     if(before.nick != after.nick):
         print(datetime.datetime.now(), "| NICK |", (before.nick.encode('utf-8')), "->", (after.nick.encode('utf-8')), file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| NICK |", (before.nick.encode('utf-8')), "->", (after.nick.encode('utf-8'))) 
-    if(before.status != after.status):
-        print(datetime.datetime.now(), "| STATUS |", before, "|", before.status, "->", after.status, file=open("./out/log.txt", "a"))
-        print(datetime.datetime.now(), "| STATUS |", before, "|", before.status, "->", after.status) 
+    if(before.mobile_status != after.mobile_status):
+        print(datetime.datetime.now(), "| STATUS |", before, "|", "mobile |", before.mobile_status, "->", after.mobile_status, file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| STATUS |", before, "|", "mobile |", before.mobile_status, "->", after.mobile_status) 
+    if(before.desktop_status != after.desktop_status):
+        print(datetime.datetime.now(), "| STATUS |", before, "|", "desktop |", before.desktop_status, "->", after.desktop_status, file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| STATUS |", before, "|", "desktop |", before.desktop_status, "->", after.desktop_status)
+    if(before.web_status != after.web_status):
+        print(datetime.datetime.now(), "| STATUS |", before, "|", "web |", before.web_status, "->", after.web_status, file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| STATUS |", before, "|", "web |", before.web_status, "->", after.web_status)
     if(before.roles != after.roles):
         print(datetime.datetime.now(), "| ROLE |", before, "|", *(after.roles), file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| ROLE |", before, "|", *(after.roles))
