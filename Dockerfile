@@ -1,5 +1,5 @@
 FROM python:3.8-slim
-RUN pip install discord.py
+RUN pip install discord.py==1.3.4
 RUN pip install python-dotenv
 RUN pip install prometheus_client
 RUN mkdir app
