@@ -12,7 +12,7 @@ Bot per avere un file log del proprio server di Discord
 ## Intallation
 #### Creazione dei file necessari
 ```
-touch <path-to-your-output-folder>/out.txt
+touch <path-to-your-output-folder>/log.txt
 touch <path-to-your-output-folder>/chat.txt
 touch <path-to-your-output-folder>/activities.txt
 ```
