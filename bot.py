@@ -30,6 +30,9 @@ async def on_voice_state_update(member, before, after):
     elif(before.self_stream != after.self_stream):
         print(datetime.datetime.now(), "| STREAMING |", member, "|", str(after.self_stream).replace("True", "ON").replace("False", "OFF"), file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| STREAMING |", member, "|", str(after.self_stream).replace("True", "ON").replace("False", "OFF"))
+    elif(before.self_video != after.self_video):
+        print(datetime.datetime.now(), "| VIDEO |", member, "|", str(after.self_video).replace("True", "ON").replace("False", "OFF"), file=open("./out/log.txt", "a"))
+        print(datetime.datetime.now(), "| VIDEO |", member, "|", str(after.self_video).replace("True", "ON").replace("False", "OFF"))
     if(before.self_deaf != after.self_deaf and after.channel != None):
         print(datetime.datetime.now(), "| DEAF |", member, "|", str(after.self_deaf).replace("True", "YES").replace("False", "NO"), file=open("./out/log.txt", "a"))
         print(datetime.datetime.now(), "| DEAF |", member, "|", str(after.self_deaf).replace("True", "YES").replace("False", "NO"))
