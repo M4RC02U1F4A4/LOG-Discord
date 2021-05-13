@@ -8,6 +8,11 @@ Bot per avere un file log del proprio server di Discord
 * Activities log
 * [Prometheus stats](https://github.com/Marco1097/LOG-Discord/wiki/Prometheus)
 
+## Grafana
+
+![Immagine 2021-05-14 003338 - Copia](https://user-images.githubusercontent.com/23193188/118196199-e6f0ff80-b44c-11eb-8e5a-255f91686b90.jpg)
+![Immagine 2021-05-14 003421 - Copia](https://user-images.githubusercontent.com/23193188/118196202-e8222c80-b44c-11eb-9845-edcbcbcf7815.png)
+
 
 ## Intallation
 #### Creazione dei file necessari
