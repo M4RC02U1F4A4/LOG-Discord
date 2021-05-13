@@ -16,15 +16,15 @@ Bot per avere un file log del proprio server di Discord
 
 ## Intallation
 #### Creazione dei file necessari
-```
-touch <path-to-your-output-folder>/log.txt
-touch <path-to-your-output-folder>/chat.txt
-touch <path-to-your-output-folder>/activities.txt
+```console
+$ touch <path-to-your-output-folder>/log.txt
+$ touch <path-to-your-output-folder>/chat.txt
+$ touch <path-to-your-output-folder>/activities.txt
 ```
 #### Caricamento e avvio del container
-```
-docker load -i discord-<release>
-docker run -d --name discord -p 9324:9324 -e TZ=Europe/Amsterdam -e "DISCORD_TOKEN=<bot-token>" -e "DISCORD_GUILD_NAME=<discord-server-name>" -v <path-to-your-output-folder>:/app/out discord-<release>
+```console
+$ docker load -i discord-<release>
+$ docker run -d --name discord -p 9324:9324 -e TZ=Europe/Amsterdam -e "DISCORD_TOKEN=<bot-token>" -e "DISCORD_GUILD_NAME=<discord-server-name>" -v <path-to-your-output-folder>:/app/out discord-<release>
 ```
 Dopo il comando ``` docker run ``` il container è già avviato
 ### Start
