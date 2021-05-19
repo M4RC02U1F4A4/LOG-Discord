@@ -25,7 +25,7 @@ $ chmod +x start_discord
 $ docker build -t discord .
 ```
 
-### Rrun
+### Run
 
 #### Creazione dei file necessari
 ```console
