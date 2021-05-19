@@ -33,7 +33,7 @@ $ touch <path-to-your-output-folder>/log.txt
 $ touch <path-to-your-output-folder>/chat.txt
 $ touch <path-to-your-output-folder>/activities.txt
 ```
-#### Caricamento e avvio del container
+#### Avvio del container
 ```console
 $ docker run -d --name discord -p 9324:9324 -e TZ=Europe/Amsterdam -e "DISCORD_TOKEN=<bot-token>" -e "DISCORD_GUILD_NAME=<discord-server-name>" -v <path-to-your-output-folder>:/app/out discord
 ```
