@@ -33,7 +33,7 @@ $ touch <path-to-your-output-folder>/activities.txt
 ```
 #### Avvio del container
 ```console
-$ docker run -d --name discord -p 9324:9324 -e TZ=Europe/Amsterdam -e "DISCORD_TOKEN=<bot-token>" -e "DISCORD_GUILD_NAME=<discord-server-name>" -v <path-to-your-output-folder>:/app/out discord
+$ docker run -d --name discord -p 9324:9324 -e TZ=Europe/Amsterdam -e PYTHONUNBUFFERED=1 -e "DISCORD_TOKEN=<bot-token>" -e "DISCORD_GUILD_NAME=<discord-server-name>" -v <path-to-your-output-folder>:/app/out discord
 ```
 Dopo il comando ``` docker run ``` il container è già avviato
 ### Start
