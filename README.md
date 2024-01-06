@@ -1,4 +1,6 @@
-# LOG-Discord <img align="right" src="https://img.shields.io/badge/Status-WORKING-blue"> <img align="right" src="https://github.com/M4RC02U1F4A4/LOG-Discord/actions/workflows/docker-build.yml/badge.svg">
+# LOG-Discord 
+
+## ⚠️⚠️ No longer maintained ⚠️⚠️
 
 ### Features
 * [LOG del server](https://github.com/Marco1097/LOG-Discord/wiki/LOG)
